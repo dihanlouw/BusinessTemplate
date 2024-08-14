@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapsible FAQ Lists</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+display: flex;
+        }
+        .midPane{flex: 4;}
+        .sidePane{flex: .5;}
+        .accordion {
+            background-color: #D3D3D3;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .accordion:hover {
+            background-color: #0056b3;
+        }
+
+        .panel {
+            padding: 0 15px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            border-radius: 0 0 5px 5px;
+            margin-top: -1px; /* To align the panel with the accordion */
+        }
+
+        .panel p {
+            margin: 15px 0;
+        }
+
+ /* Media Queries */
+        @media (min-width: 768px) {
+            body {
+                height: 100vh;
+                overflow-y: auto;
+            }
+            
+            .accordion {
+                font-size: 18px;
+                padding: 20px;
+            }
+
+            .panel p {
+                margin: 20px 0;
+            }
+
+        }
+
+        @media (max-width: 767px) {
+            body {
+                height: auto;
+                overflow: auto;
+            }
+
+            .accordion {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .panel p {
+                margin: 10px 0;
+            }
+            .midPane{flex: 4;}
+            .sidePane{flex: .2;}
+        }
+    </style>
+</head>
+<body>
+<div class="sidePane"> </div>
+<div class="midPane"> 
+    <button class="accordion">General Operations</button>
+    <div class="panel">
+        <p><strong>How does your company handle orders and deliveries?</strong></p>
+        <p>We process orders through our centralized system, ensuring timely and accurate delivery. Orders are tracked and managed in real-time.</p>
+
+        <p><strong>What is your process for handling customer inquiries and complaints?</strong></p>
+        <p>Customer inquiries are handled through our support team. We aim to resolve complaints within 48 hours of receipt.</p>
+
+        <p><strong>How do you ensure quality control in your products/services?</strong></p>
+        <p>Quality control is maintained through regular checks and standardized procedures. We continuously monitor and improve our quality standards.</p>
+
+        <p><strong>What are your business hours and how do you handle after-hours inquiries?</strong></p>
+        <p>Our business hours are from 9 AM to 5 PM, Monday to Friday. After-hours inquiries are addressed the next business day.</p>
+
+        <p><strong>Do you have a contingency plan for business disruptions?</strong></p>
+        <p>Yes, we have a contingency plan in place for various scenarios to ensure business continuity.</p>
+    </div>
+
+    <button class="accordion">Products or Services</button>
+    <div class="panel">
+        <p><strong>What products or services do you offer?</strong></p>
+        <p>We offer a wide range of products and services including ...</p>
+
+        <p><strong>Do you offer custom solutions?</strong></p>
+        <p>Yes, we provide customized solutions tailored to meet specific customer needs.</p>
+
+        <p><strong>Can I get a quote for your services/products?</strong></p>
+        <p>Quotes can be obtained by contacting our sales team or through our website's quote request form.</p>
+
+        <p><strong>What are your payment options?</strong></p>
+        <p>We accept various payment methods including credit cards, bank transfers, and PayPal.</p>
+
+        <p><strong>How can I place an order?</strong></p>
+        <p>Orders can be placed online through our website or by contacting our sales department directly.</p>
+
+        <p><strong>Do you offer discounts or promotions?</strong></p>
+        <p>We regularly offer promotions and discounts, which can be found on our website or by subscribing to our newsletter.</p>
+
+        <p><strong>What is your return or exchange policy?</strong></p>
+        <p>Our return and exchange policy is outlined on our website and allows for returns within 30 days of purchase.</p>
+    </div>
+
+    <button class="accordion">Billing and Payments</button>
+    <div class="panel">
+        <p><strong>What is your billing and invoicing process?</strong></p>
+        <p>We generate invoices upon order confirmation and send them to customers via email. Payments are processed through our secure payment gateway.</p>
+
+        <p><strong>How do you handle financial audits and compliance?</strong></p>
+        <p>We adhere to industry standards for financial audits and compliance, ensuring accuracy and transparency in our financial practices.</p>
+
+        <p><strong>What are your payment terms for clients?</strong></p>
+        <p>Our standard payment terms are net 30 days from the invoice date. Specific terms may vary based on client agreements.</p>
+
+        <p><strong>How do you manage and track expenses?</strong></p>
+        <p>Expenses are tracked using our financial management system, which helps us monitor and manage expenditures effectively.</p>
+    </div>
+
+    <button class="accordion">Account and Orders</button>
+    <div class="panel">
+        <p><strong>How do I create an account?</strong></p>
+        <p>Accounts can be created by signing up through our website. You'll need to provide basic information to register.</p>
+
+        <p><strong>I forgot my password. How can I reset it?</strong></p>
+        <p>Use the "Forgot Password" link on the login page to reset your password. You'll receive instructions via email.</p>
+
+        <p><strong>Can I change or cancel my order after it’s been placed?</strong></p>
+        <p>Order changes or cancellations can be made within a specific time frame. Contact our support team for assistance.</p>
+
+        <p><strong>How can I view my order history?</strong></p>
+        <p>Order history can be accessed through your account dashboard on our website.</p>
+
+        <p><strong>What should I do if I receive the wrong item?</strong></p>
+        <p>Contact our customer service team to resolve issues with incorrect items. We will arrange for a replacement or refund.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            function closeAllPanels() {
+                for (i = 0; i < acc.length; i++) {
+                    var panel = acc[i].nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                        acc[i].classList.remove("active");
+                    }
+                }
+            }
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function () {
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                        this.classList.remove("active");
+                    } else {
+                        closeAllPanels();
+                        panel.style.display = "block";
+                        this.classList.add("active");
+                    }
+                });
+            }
+        });
+    </script>
+</div>
+<div class="sidePane"> </div>
+</body>
+</html>

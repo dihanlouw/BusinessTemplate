@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Team</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+
+        }
+
+
+
+        .team-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 30%;
+            box-sizing: border-box;
+            transition: transform 0.3s;
+            margin: 20px 40px 20px 40px;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .team-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .team-info h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+        }
+
+        .team-info p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .team-info .email {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .team-member {
+                width: calc(60%);
+                margin: 0;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+        }
+
+        @media (min-width: 768px) {
+            .spacer {
+                width: 100%;
+                height: 100px;
+                line-height: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-member {
+                width: 90%;
+                margin: 0;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="spacer"> &nbsp </div>
+    <section class="team-section">
+        <div class="team-member">
+            <img src="https://via.placeholder.com/400x300" alt="Team Member 1">
+            <div class="team-info">
+                <h3>John Doe</h3>
+                <p>Job Title: Software Engineer</p>
+                <p>Email: <a href="mailto:john.doe@example.com" class="email">john.doe@example.com</a></p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://via.placeholder.com/400x300" alt="Team Member 2">
+            <div class="team-info">
+                <h3>Jane Smith</h3>
+                <p>Job Title: Product Manager</p>
+                <p>Email: <a href="mailto:jane.smith@example.com" class="email">jane.smith@example.com</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
